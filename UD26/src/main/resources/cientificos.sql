@@ -1,7 +1,15 @@
-USE cientificos2;
-DROP TABLE asignado_a;
-DROP TABLE proyecto;
-DROP TABLE cientificos;
+/*CREATE DATABASE usuariosecurity;*/
+USE usuariosecurity;
+DROP TABLE IF EXISTS asignado_a;
+DROP TABLE IF EXISTS proyecto;
+DROP TABLE IF EXISTS cientificos;
+DROP TABLE IF EXISTS usuario;
+CREATE TABLE usuario (
+id int primary key auto_increment,
+username nvarchar(255),
+password nvarchar(255),
+role nvarchar(255)
+);
 CREATE TABLE IF NOT exists proyecto (
 id int primary key auto_increment,
 nombre nvarchar(255),
@@ -31,3 +39,5 @@ INSERT INTO cientificos (dni, nom_apels) VALUES("33333333P", 'Eloy');
 INSERT INTO cientificos (dni, nom_apels) VALUES("66666666P", 'Eloy');
 
 INSERT INTO asignado_a (cient_id, proyecto_id) VALUES(1, 1);
+
+INSERT INTO usuario (username, password, role) VALUES ('admin', '$2a$10$XURPShQNCsLjp1ESc2laoObo9QZDhxz73hJPaEv7/cBha4pk0AgP.','admin');
