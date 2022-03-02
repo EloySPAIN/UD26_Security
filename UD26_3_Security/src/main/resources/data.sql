@@ -2,6 +2,7 @@ DROP table IF EXISTS venta;
 DROP table IF EXISTS cajeros;
 DROP table IF EXISTS productos;
 DROP table IF EXISTS maquinas_registradoras;
+DROP table IF EXISTS usuario;
 
 create TABLE productos(
 	id int auto_increment,
@@ -39,6 +40,14 @@ create TABLE venta(
 	CONSTRAINT maquina_IDX2 FOREIGN KEY (maquina) REFERENCES maquinas_registradoras (id)
 );
 
+create TABLE usuario(
+	id bigint NOT NULL auto_increment,
+	password varchar(255) DEFAULT NULL,
+	role varchar(255) DEFAULT NULL,
+	username varchar(255) DEFAULT NULL,
+	PRIMARY KEY (id)
+);
+
 INSERT INTO productos (nombre, precio) values ('sofa',250);
 INSERT INTO productos (nombre, precio) values ('butaca',120);
 INSERT INTO productos (nombre, precio) values ('cochon',300);
@@ -58,3 +67,5 @@ INSERT INTO venta (cajero, maquina, producto) values (1, 1, 1);
 INSERT INTO venta (cajero, maquina, producto) values (2, 2, 2);
 INSERT INTO venta (cajero, maquina, producto) values (3, 3, 3);
 INSERT INTO venta (cajero, maquina, producto) values (4, 4, 4);
+
+INSERT INTO usuario (username, password, role) VALUES ('admin', '$2a$10$XURPShQNCsLjp1ESc2laoObo9QZDhxz73hJPaEv7/cBha4pk0AgP.','admin');
