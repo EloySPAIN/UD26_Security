@@ -6,14 +6,14 @@ DROP table IF EXISTS usuario;
 
 create TABLE productos(
 	id int auto_increment,
-	nombre varchar(100),
+	nombre nvarchar(100),
 	precio int,
 	PRIMARY KEY (id)
 );
 
 create TABLE cajeros(
 	id int auto_increment,
-	nom_apels varchar(100),
+	nom_apels nvarchar(100),
 	PRIMARY KEY (id)
 );
 
@@ -42,9 +42,9 @@ create TABLE venta(
 
 create TABLE usuario(
 	id bigint NOT NULL auto_increment,
-	password varchar(255) DEFAULT NULL,
-	role varchar(255) DEFAULT NULL,
-	username varchar(255) DEFAULT NULL,
+	password nvarchar(255) DEFAULT NULL,
+	role nvarchar(255) DEFAULT NULL,
+	username nvarchar(255) DEFAULT NULL,
 	PRIMARY KEY (id)
 );
 
